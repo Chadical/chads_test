@@ -1,4 +1,5 @@
 ActiveAdmin.register MoreOfMyModel do
+  permit_params :you_betcha, :how_many
 
   
   # See permitted parameters documentation:
