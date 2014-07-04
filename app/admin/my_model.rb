@@ -1,4 +1,5 @@
 ActiveAdmin.register MyModel do
+  permit_params :title, :for_sure
 
   
   # See permitted parameters documentation:
