@@ -1,5 +1,5 @@
 class MoreOfMyModelsController < ApplicationController
-  before_action :set_more_of_my_model, only: [:show, :edit, :update, :destroy]
+  before_action :set_more_of_my_model, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /more_of_my_models
   # GET /more_of_my_models.json
