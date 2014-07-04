@@ -1,6 +1,5 @@
-<h1>Editing more_of_my_model</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @more_of_my_model %> |
-<%= link_to 'Back', more_of_my_models_path %>
+<%- model_class = MoreOfMyModel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => MoreOfMyModel %></h1>
+</div>
+<%= render :partial => 'form' %>

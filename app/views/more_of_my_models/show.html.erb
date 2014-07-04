@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = MoreOfMyModel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => MoreOfMyModel %></h1>
+</div>
 
-<p>
-  <strong>You betcha:</strong>
-  <%= @more_of_my_model.you_betcha %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:you_betcha) %></dt>
+      <dd><pre class="prettyprint"><%= @more_of_my_model.you_betcha %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:how_many) %></dt>
+      <dd><pre class="prettyprint"><%= @more_of_my_model.how_many %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>How many:</strong>
-  <%= @more_of_my_model.how_many %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              more_of_my_models_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_more_of_my_model_path(@more_of_my_model), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              more_of_my_model_path(@more_of_my_model),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>My model:</strong>
-  <%= @more_of_my_model.my_model %>
-</p>
-
-<%= link_to 'Edit', edit_more_of_my_model_path(@more_of_my_model) %> |
-<%= link_to 'Back', more_of_my_models_path %>

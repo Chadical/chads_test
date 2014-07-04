@@ -1,29 +1,38 @@
-<h1>Listing more_of_my_models</h1>
-
-<table>
+<%- model_class = MoreOfMyModel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => MoreOfMyModel %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>You betcha</th>
-      <th>How many</th>
-      <th>My model</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:you_betcha) %></th>
+      <th><%= model_class.human_attribute_name(:how_many) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @more_of_my_models.each do |more_of_my_model| %>
       <tr>
+        <td><%= more_of_my_model.id %></td>
         <td><%= more_of_my_model.you_betcha %></td>
         <td><%= more_of_my_model.how_many %></td>
-        <td><%= more_of_my_model.my_model %></td>
-        <td><%= link_to 'Show', more_of_my_model %></td>
-        <td><%= link_to 'Edit', edit_more_of_my_model_path(more_of_my_model) %></td>
-        <td><%= link_to 'Destroy', more_of_my_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l more_of_my_model.created_at, format: :long %></td>
+        <td>
+          <%= link_to more_of_my_model_path(more_of_my_model), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to more_of_my_model_path(more_of_my_model), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New More of my model', new_more_of_my_model_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_more_of_my_model_path,
+            :class => 'btn btn-primary' %>
