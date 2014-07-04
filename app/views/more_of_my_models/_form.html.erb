@@ -1,0 +1,13 @@
+<%= simple_form_for(@more_of_my_model) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :you_betcha %>
+    <%= f.input :how_many %>
+    <%= f.association :my_model %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

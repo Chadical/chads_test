@@ -1,0 +1,29 @@
+<h1>Listing more_of_my_models</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>You betcha</th>
+      <th>How many</th>
+      <th>My model</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @more_of_my_models.each do |more_of_my_model| %>
+      <tr>
+        <td><%= more_of_my_model.you_betcha %></td>
+        <td><%= more_of_my_model.how_many %></td>
+        <td><%= more_of_my_model.my_model %></td>
+        <td><%= link_to 'Show', more_of_my_model %></td>
+        <td><%= link_to 'Edit', edit_more_of_my_model_path(more_of_my_model) %></td>
+        <td><%= link_to 'Destroy', more_of_my_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New More of my model', new_more_of_my_model_path %>
